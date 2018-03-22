@@ -19,9 +19,14 @@ geocode.geocodeAddress(argv.address, (err, res) => {
   if (err) {
     console.log(err);
   } else {
-    // console.log(JSON.stringify(res, undefined, 2));
     const lat = res.latitude;
     const lng = res.longitude;
-    weather.getWeather(lat, lng);
+    weather.getWeather(lat, lng, (err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(`Current temperature is ${res.temperature}, and it feels like ${res.apparentTemperature}`);
+      }
+    });
   }
 });
