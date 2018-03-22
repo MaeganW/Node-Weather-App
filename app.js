@@ -19,10 +19,9 @@ geocode.geocodeAddress(argv.address, (err, res) => {
   if (err) {
     console.log(err);
   } else {
-    console.log(JSON.stringify(res, undefined, 2));
+    // console.log(JSON.stringify(res, undefined, 2));
     const lat = res.latitude;
     const lng = res.longitude;
-
     getWeather(lat, lng);
   }
 });
@@ -33,6 +32,10 @@ const getWeather = (lat, lng) => {
     url,
     json: true
   }, (err, res, body) => {
-    console.log(body.currently.temperature);
+    if (!err && res.statusCode === 200) {
+      console.log(body.currently.temperature);
+    } else {
+      console.log('Unable to connect to servers.');
+    }
   })
 }
