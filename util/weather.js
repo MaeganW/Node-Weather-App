@@ -1,5 +1,6 @@
 const request = require('request');
 
+// Callback Version
 // const getWeather = (lat, lng, callback) => {
 //   const url = `https://api.darksky.net/forecast/1c80bf92aadd3db44c05ce1c48912649/${lat},${lng}`;
 //   request({

@@ -1,5 +1,6 @@
 const request = require('request');
 
+// Callback Version
 // const geocodeAddress = (address, callback) => {
 //   const encodedAddress = encodeURIComponent(address);
 
